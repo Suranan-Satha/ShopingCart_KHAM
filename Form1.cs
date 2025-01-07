@@ -17,72 +17,87 @@
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double dCash = 0, dCoffeePrice = 0, dCoffeeQuantity = 0, dGreenteaPrice = 0, dGreenteaQuantity = 0;
-            double dNoodlePrice = 0, dNoodleQuantity = 0, dPizzaPrice = 0, dPizzaQuantity = 0;
-
             try
             {
-                dCash = double.Parse(tb_cash.Text);
+                double dCash = double.Parse(tb_cash.Text);
+
+                double dBeverageTotal = 0;
+                double dFoodTotal = 0;
+
                 if (chb_Coffee.Checked)
                 {
-                    dCoffeePrice = double.Parse(tb_Coffee_Price.Text);
-                    dCoffeeQuantity = double.Parse(tb_Coffee_Quantity.Text);
+                    dBeverageTotal += GetItemTotal(tb_Coffee_Price.Text, tb_Coffee_Quantity.Text);
                 }
                 if (chb_Greentea.Checked)
                 {
-                    dGreenteaPrice = double.Parse(tb_Greentea_Price.Text);
-                    dGreenteaQuantity = double.Parse(tb_Greentea_Quantity.Text);
+                    dBeverageTotal += GetItemTotal(tb_Greentea_Price.Text, tb_Greentea_Quantity.Text);
                 }
+
                 if (chb_noodle.Checked)
                 {
-                    dNoodlePrice = double.Parse(tb_Noodle_Price.Text);
-                    dNoodleQuantity = double.Parse(tb_Noodle_Quantity.Text);
+                    dFoodTotal += GetItemTotal(tb_Noodle_Price.Text, tb_Noodle_Quantity.Text);
                 }
                 if (chb_pizza.Checked)
                 {
-                    dPizzaPrice = double.Parse(tb_Pizza_Price.Text);
-                    dPizzaQuantity = double.Parse(tb_Pizza_Quantity.Text);
+                    dFoodTotal += GetItemTotal(tb_Pizza_Price.Text, tb_Pizza_Quantity.Text);
                 }
+
+                double dGrandTotal = dBeverageTotal + dFoodTotal;
+
+                double dTotalDiscount = CalculateTotalDiscount(dBeverageTotal, dFoodTotal, dGrandTotal);
+
+                dGrandTotal -= dTotalDiscount;
+
+                if (dCash < dGrandTotal)
+                {
+                    MessageBox.Show("เงินสดไม่เพียงพอ", "ข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                double dChange = dCash - dGrandTotal;
+
+                tb_total.Text = dGrandTotal.ToString("F2");
+                tb_change.Text = dChange.ToString("F2");
+
+                CalculateChangeDenominations(dChange);
             }
             catch (FormatException)
             {
                 MessageBox.Show("กรุณากรอกข้อมูลตัวเลขให้ถูกต้อง", "ข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
+        }
 
-            double dBeverageTotal = (dCoffeePrice * dCoffeeQuantity) + (dGreenteaPrice * dGreenteaQuantity);
-            double dFoodTotal = (dNoodlePrice * dNoodleQuantity) + (dPizzaPrice * dPizzaQuantity);
-            double dGrandTotal = dBeverageTotal + dFoodTotal;
-
-            
+        private double GetItemTotal(string priceText, string quantityText)
+        {
+            double price = 0, quantity = 0;
+            try
+            {
+                price = double.Parse(priceText);
+                quantity = double.Parse(quantityText);
+            }
+            catch (Exception)
+            {
+                price = 0;
+                quantity = 0;
+            }
+            return price * quantity;
+        }
+        private double CalculateTotalDiscount(double dBeverageTotal, double dFoodTotal, double dGrandTotal)
+        {
             double dDiscountBev = chb_beverage.Checked ? double.Parse(tb_Beverage_Discount.Text) : 0;
             double dDiscountFood = chb_food.Checked ? double.Parse(tb_Food_Discount.Text) : 0;
             double dDiscountAll = chb_all.Checked ? double.Parse(tb_total_Discount.Text) : 0;
 
-            double dTotalDiscount = (dBeverageTotal * dDiscountBev / 100) +(dFoodTotal * dDiscountFood / 100) +(dGrandTotal * dDiscountAll / 100);
+            double dTotalDiscount = (dBeverageTotal * dDiscountBev / 100) + (dFoodTotal * dDiscountFood / 100) + (dGrandTotal * dDiscountAll / 100);
 
-            
-            dGrandTotal -= dTotalDiscount;
+            return dTotalDiscount;
+        }
 
-            
-            if (dCash < dGrandTotal)
-            {
-                MessageBox.Show("เงินสดไม่เพียงพอ", "ข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            
-            double dChange = dCash - dGrandTotal;
-
-            
-            tb_total.Text = dGrandTotal.ToString("F2");
-            tb_change.Text = dChange.ToString("F2");
-            
-
-            
+        private void CalculateChangeDenominations(double change)
+        {
             double[] denominations = { 1000, 500, 100, 50, 20, 10, 5, 1, 0.50, 0.25 };
             int[] changeCount = new int[denominations.Length];
-            double remainChange = dChange;
+            double remainChange = change;
 
             for (int i = 0; i < denominations.Length; i++)
             {
@@ -101,6 +116,7 @@
             tb_050.Text = changeCount[8].ToString();
             tb_025.Text = changeCount[9].ToString();
         }
+
 
 
 
