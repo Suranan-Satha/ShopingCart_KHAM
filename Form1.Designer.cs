@@ -63,10 +63,10 @@
             tb_Noodle_Price = new TextBox();
             tb_Pizza_Quantity = new TextBox();
             tb_Pizza_Price = new TextBox();
-            ch_all = new CheckBox();
+            chb_all = new CheckBox();
             chb_beverage = new CheckBox();
             chb_food = new CheckBox();
-            tb_All_Discount = new TextBox();
+            tb_total_Discount = new TextBox();
             tb_Beverage_Discount = new TextBox();
             tb_Food_Discount = new TextBox();
             label17 = new Label();
@@ -79,8 +79,8 @@
             groupBox3 = new GroupBox();
             label14 = new Label();
             label15 = new Label();
-            tb_0_50 = new TextBox();
-            tb_0_25 = new TextBox();
+            tb_050 = new TextBox();
+            tb_025 = new TextBox();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -368,15 +368,15 @@
             tb_Pizza_Price.Size = new Size(125, 27);
             tb_Pizza_Price.TabIndex = 38;
             // 
-            // ch_all
+            // chb_all
             // 
-            ch_all.AutoSize = true;
-            ch_all.Location = new Point(20, 25);
-            ch_all.Name = "ch_all";
-            ch_all.Size = new Size(49, 24);
-            ch_all.TabIndex = 41;
-            ch_all.Text = "All";
-            ch_all.UseVisualStyleBackColor = true;
+            chb_all.AutoSize = true;
+            chb_all.Location = new Point(20, 25);
+            chb_all.Name = "chb_all";
+            chb_all.Size = new Size(49, 24);
+            chb_all.TabIndex = 41;
+            chb_all.Text = "All";
+            chb_all.UseVisualStyleBackColor = true;
             // 
             // chb_beverage
             // 
@@ -398,12 +398,12 @@
             chb_food.Text = "Food";
             chb_food.UseVisualStyleBackColor = true;
             // 
-            // tb_All_Discount
+            // tb_total_Discount
             // 
-            tb_All_Discount.Location = new Point(119, 19);
-            tb_All_Discount.Name = "tb_All_Discount";
-            tb_All_Discount.Size = new Size(125, 27);
-            tb_All_Discount.TabIndex = 44;
+            tb_total_Discount.Location = new Point(119, 19);
+            tb_total_Discount.Name = "tb_total_Discount";
+            tb_total_Discount.Size = new Size(125, 27);
+            tb_total_Discount.TabIndex = 44;
             // 
             // tb_Beverage_Discount
             // 
@@ -501,12 +501,12 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(tb_Beverage_Discount);
-            groupBox3.Controls.Add(ch_all);
+            groupBox3.Controls.Add(chb_all);
             groupBox3.Controls.Add(chb_beverage);
             groupBox3.Controls.Add(label19);
             groupBox3.Controls.Add(chb_food);
             groupBox3.Controls.Add(label18);
-            groupBox3.Controls.Add(tb_All_Discount);
+            groupBox3.Controls.Add(tb_total_Discount);
             groupBox3.Controls.Add(label17);
             groupBox3.Controls.Add(tb_Food_Discount);
             groupBox3.Location = new Point(12, 303);
@@ -534,27 +534,27 @@
             label15.TabIndex = 54;
             label15.Text = "0.25";
             // 
-            // tb_0_50
+            // tb_050
             // 
-            tb_0_50.Location = new Point(720, 359);
-            tb_0_50.Name = "tb_0_50";
-            tb_0_50.Size = new Size(125, 27);
-            tb_0_50.TabIndex = 55;
+            tb_050.Location = new Point(720, 359);
+            tb_050.Name = "tb_050";
+            tb_050.Size = new Size(125, 27);
+            tb_050.TabIndex = 55;
             // 
-            // tb_0_25
+            // tb_025
             // 
-            tb_0_25.Location = new Point(720, 393);
-            tb_0_25.Name = "tb_0_25";
-            tb_0_25.Size = new Size(125, 27);
-            tb_0_25.TabIndex = 56;
+            tb_025.Location = new Point(720, 393);
+            tb_025.Name = "tb_025";
+            tb_025.Size = new Size(125, 27);
+            tb_025.TabIndex = 56;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(912, 464);
-            Controls.Add(tb_0_25);
-            Controls.Add(tb_0_50);
+            Controls.Add(tb_025);
+            Controls.Add(tb_050);
             Controls.Add(label15);
             Controls.Add(label14);
             Controls.Add(groupBox3);
@@ -633,10 +633,10 @@
         private TextBox tb_Noodle_Price;
         private TextBox tb_Pizza_Quantity;
         private TextBox tb_Pizza_Price;
-        private CheckBox ch_all;
+        private CheckBox chb_all;
         private CheckBox chb_beverage;
         private CheckBox chb_food;
-        private TextBox tb_All_Discount;
+        private TextBox tb_total_Discount;
         private TextBox tb_Beverage_Discount;
         private TextBox tb_Food_Discount;
         private Label label17;
@@ -649,7 +649,7 @@
         private GroupBox groupBox3;
         private Label label14;
         private Label label15;
-        private TextBox tb_0_50;
-        private TextBox tb_0_25;
+        private TextBox tb_050;
+        private TextBox tb_025;
     }
 }
