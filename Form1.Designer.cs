@@ -59,11 +59,36 @@
             tb_100 = new TextBox();
             label12 = new Label();
             label13 = new Label();
+            tb_Noodle_Quantity = new TextBox();
+            tb_Noodle_Price = new TextBox();
+            tb_Pizza_Quantity = new TextBox();
+            tb_Pizza_Price = new TextBox();
+            ch_all = new CheckBox();
+            chb_beverage = new CheckBox();
+            chb_food = new CheckBox();
+            tb_All_Discount = new TextBox();
+            tb_Beverage_Discount = new TextBox();
+            tb_Food_Discount = new TextBox();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            chb_noodle = new CheckBox();
+            chb_pizza = new CheckBox();
+            groupBox3 = new GroupBox();
+            label14 = new Label();
+            label15 = new Label();
+            tb_0_50 = new TextBox();
+            tb_0_25 = new TextBox();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // tb_Coffee_Price
             // 
-            tb_Coffee_Price.Location = new Point(130, 34);
+            tb_Coffee_Price.Location = new Point(128, 40);
             tb_Coffee_Price.Name = "tb_Coffee_Price";
             tb_Coffee_Price.Size = new Size(125, 27);
             tb_Coffee_Price.TabIndex = 0;
@@ -71,9 +96,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(346, 222);
+            button1.Location = new Point(497, 102);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(125, 326);
             button1.TabIndex = 1;
             button1.Text = "Check out";
             button1.UseVisualStyleBackColor = true;
@@ -82,7 +107,7 @@
             // chb_Coffee
             // 
             chb_Coffee.AutoSize = true;
-            chb_Coffee.Location = new Point(12, 37);
+            chb_Coffee.Location = new Point(10, 43);
             chb_Coffee.Name = "chb_Coffee";
             chb_Coffee.Size = new Size(75, 24);
             chb_Coffee.TabIndex = 2;
@@ -93,7 +118,7 @@
             // chb_Greentea
             // 
             chb_Greentea.AutoSize = true;
-            chb_Greentea.Location = new Point(12, 84);
+            chb_Greentea.Location = new Point(10, 90);
             chb_Greentea.Name = "chb_Greentea";
             chb_Greentea.Size = new Size(91, 24);
             chb_Greentea.TabIndex = 3;
@@ -102,28 +127,28 @@
             // 
             // tb_Greentea_Price
             // 
-            tb_Greentea_Price.Location = new Point(130, 81);
+            tb_Greentea_Price.Location = new Point(128, 87);
             tb_Greentea_Price.Name = "tb_Greentea_Price";
             tb_Greentea_Price.Size = new Size(125, 27);
             tb_Greentea_Price.TabIndex = 4;
             // 
             // tb_Coffee_Quantity
             // 
-            tb_Coffee_Quantity.Location = new Point(289, 34);
+            tb_Coffee_Quantity.Location = new Point(287, 40);
             tb_Coffee_Quantity.Name = "tb_Coffee_Quantity";
             tb_Coffee_Quantity.Size = new Size(125, 27);
             tb_Coffee_Quantity.TabIndex = 7;
             // 
             // tb_Greentea_Quantity
             // 
-            tb_Greentea_Quantity.Location = new Point(289, 82);
+            tb_Greentea_Quantity.Location = new Point(287, 88);
             tb_Greentea_Quantity.Name = "tb_Greentea_Quantity";
             tb_Greentea_Quantity.Size = new Size(125, 27);
             tb_Greentea_Quantity.TabIndex = 8;
             // 
             // tb_total
             // 
-            tb_total.Location = new Point(561, 32);
+            tb_total.Location = new Point(720, 25);
             tb_total.Name = "tb_total";
             tb_total.Size = new Size(125, 27);
             tb_total.TabIndex = 9;
@@ -131,7 +156,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(513, 35);
+            label2.Location = new Point(672, 28);
             label2.Name = "label2";
             label2.Size = new Size(42, 20);
             label2.TabIndex = 10;
@@ -140,7 +165,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(156, 122);
+            label3.Location = new Point(542, 27);
             label3.Name = "label3";
             label3.Size = new Size(40, 20);
             label3.TabIndex = 12;
@@ -149,7 +174,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(496, 65);
+            label4.Location = new Point(655, 58);
             label4.Name = "label4";
             label4.Size = new Size(59, 20);
             label4.TabIndex = 13;
@@ -158,7 +183,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(514, 105);
+            label5.Location = new Point(673, 98);
             label5.Name = "label5";
             label5.Size = new Size(41, 20);
             label5.TabIndex = 14;
@@ -167,7 +192,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(522, 141);
+            label6.Location = new Point(681, 134);
             label6.Name = "label6";
             label6.Size = new Size(33, 20);
             label6.TabIndex = 15;
@@ -176,7 +201,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(530, 207);
+            label7.Location = new Point(689, 200);
             label7.Name = "label7";
             label7.Size = new Size(25, 20);
             label7.TabIndex = 16;
@@ -185,7 +210,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(530, 240);
+            label8.Location = new Point(689, 233);
             label8.Name = "label8";
             label8.Size = new Size(25, 20);
             label8.TabIndex = 17;
@@ -194,7 +219,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(530, 273);
+            label9.Location = new Point(689, 266);
             label9.Name = "label9";
             label9.Size = new Size(25, 20);
             label9.TabIndex = 18;
@@ -203,7 +228,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(538, 306);
+            label10.Location = new Point(697, 299);
             label10.Name = "label10";
             label10.Size = new Size(17, 20);
             label10.TabIndex = 19;
@@ -212,7 +237,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(538, 339);
+            label11.Location = new Point(697, 332);
             label11.Name = "label11";
             label11.Size = new Size(17, 20);
             label11.TabIndex = 20;
@@ -220,63 +245,63 @@
             // 
             // tb_10
             // 
-            tb_10.Location = new Point(561, 266);
+            tb_10.Location = new Point(720, 259);
             tb_10.Name = "tb_10";
             tb_10.Size = new Size(125, 27);
             tb_10.TabIndex = 21;
             // 
             // tb_20
             // 
-            tb_20.Location = new Point(561, 233);
+            tb_20.Location = new Point(720, 226);
             tb_20.Name = "tb_20";
             tb_20.Size = new Size(125, 27);
             tb_20.TabIndex = 22;
             // 
             // tb_50
             // 
-            tb_50.Location = new Point(561, 200);
+            tb_50.Location = new Point(720, 193);
             tb_50.Name = "tb_50";
             tb_50.Size = new Size(125, 27);
             tb_50.TabIndex = 23;
             // 
             // tb_500
             // 
-            tb_500.Location = new Point(561, 134);
+            tb_500.Location = new Point(720, 127);
             tb_500.Name = "tb_500";
             tb_500.Size = new Size(125, 27);
             tb_500.TabIndex = 24;
             // 
             // tb_1000
             // 
-            tb_1000.Location = new Point(561, 98);
+            tb_1000.Location = new Point(720, 91);
             tb_1000.Name = "tb_1000";
             tb_1000.Size = new Size(125, 27);
             tb_1000.TabIndex = 25;
             // 
             // tb_change
             // 
-            tb_change.Location = new Point(561, 65);
+            tb_change.Location = new Point(720, 58);
             tb_change.Name = "tb_change";
             tb_change.Size = new Size(125, 27);
             tb_change.TabIndex = 26;
             // 
             // tb_5
             // 
-            tb_5.Location = new Point(561, 299);
+            tb_5.Location = new Point(720, 292);
             tb_5.Name = "tb_5";
             tb_5.Size = new Size(125, 27);
             tb_5.TabIndex = 27;
             // 
             // tb_1
             // 
-            tb_1.Location = new Point(561, 332);
+            tb_1.Location = new Point(720, 325);
             tb_1.Name = "tb_1";
             tb_1.Size = new Size(125, 27);
             tb_1.TabIndex = 28;
             // 
             // tb_cash
             // 
-            tb_cash.Location = new Point(202, 122);
+            tb_cash.Location = new Point(497, 55);
             tb_cash.Name = "tb_cash";
             tb_cash.Size = new Size(125, 27);
             tb_cash.TabIndex = 29;
@@ -284,7 +309,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(522, 174);
+            label1.Location = new Point(681, 167);
             label1.Name = "label1";
             label1.Size = new Size(33, 20);
             label1.TabIndex = 30;
@@ -292,7 +317,7 @@
             // 
             // tb_100
             // 
-            tb_100.Location = new Point(561, 167);
+            tb_100.Location = new Point(720, 160);
             tb_100.Name = "tb_100";
             tb_100.Size = new Size(125, 27);
             tb_100.TabIndex = 31;
@@ -300,7 +325,7 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(329, 9);
+            label12.Location = new Point(327, 15);
             label12.Name = "label12";
             label12.Size = new Size(49, 20);
             label12.TabIndex = 32;
@@ -309,19 +334,232 @@
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(169, 9);
+            label13.Location = new Point(167, 15);
             label13.Name = "label13";
             label13.Size = new Size(38, 20);
             label13.TabIndex = 33;
             label13.Text = "ราคา";
             // 
+            // tb_Noodle_Quantity
+            // 
+            tb_Noodle_Quantity.Location = new Point(287, 29);
+            tb_Noodle_Quantity.Name = "tb_Noodle_Quantity";
+            tb_Noodle_Quantity.Size = new Size(125, 27);
+            tb_Noodle_Quantity.TabIndex = 35;
+            // 
+            // tb_Noodle_Price
+            // 
+            tb_Noodle_Price.Location = new Point(128, 26);
+            tb_Noodle_Price.Name = "tb_Noodle_Price";
+            tb_Noodle_Price.Size = new Size(125, 27);
+            tb_Noodle_Price.TabIndex = 36;
+            // 
+            // tb_Pizza_Quantity
+            // 
+            tb_Pizza_Quantity.Location = new Point(287, 75);
+            tb_Pizza_Quantity.Name = "tb_Pizza_Quantity";
+            tb_Pizza_Quantity.Size = new Size(125, 27);
+            tb_Pizza_Quantity.TabIndex = 37;
+            // 
+            // tb_Pizza_Price
+            // 
+            tb_Pizza_Price.Location = new Point(128, 75);
+            tb_Pizza_Price.Name = "tb_Pizza_Price";
+            tb_Pizza_Price.Size = new Size(125, 27);
+            tb_Pizza_Price.TabIndex = 38;
+            // 
+            // ch_all
+            // 
+            ch_all.AutoSize = true;
+            ch_all.Location = new Point(20, 25);
+            ch_all.Name = "ch_all";
+            ch_all.Size = new Size(49, 24);
+            ch_all.TabIndex = 41;
+            ch_all.Text = "All";
+            ch_all.UseVisualStyleBackColor = true;
+            // 
+            // chb_beverage
+            // 
+            chb_beverage.AutoSize = true;
+            chb_beverage.Location = new Point(20, 55);
+            chb_beverage.Name = "chb_beverage";
+            chb_beverage.Size = new Size(93, 24);
+            chb_beverage.TabIndex = 42;
+            chb_beverage.Text = "Beverage";
+            chb_beverage.UseVisualStyleBackColor = true;
+            // 
+            // chb_food
+            // 
+            chb_food.AutoSize = true;
+            chb_food.Location = new Point(20, 90);
+            chb_food.Name = "chb_food";
+            chb_food.Size = new Size(65, 24);
+            chb_food.TabIndex = 43;
+            chb_food.Text = "Food";
+            chb_food.UseVisualStyleBackColor = true;
+            // 
+            // tb_All_Discount
+            // 
+            tb_All_Discount.Location = new Point(119, 19);
+            tb_All_Discount.Name = "tb_All_Discount";
+            tb_All_Discount.Size = new Size(125, 27);
+            tb_All_Discount.TabIndex = 44;
+            // 
+            // tb_Beverage_Discount
+            // 
+            tb_Beverage_Discount.Location = new Point(119, 52);
+            tb_Beverage_Discount.Name = "tb_Beverage_Discount";
+            tb_Beverage_Discount.Size = new Size(125, 27);
+            tb_Beverage_Discount.TabIndex = 45;
+            // 
+            // tb_Food_Discount
+            // 
+            tb_Food_Discount.Location = new Point(119, 88);
+            tb_Food_Discount.Name = "tb_Food_Discount";
+            tb_Food_Discount.Size = new Size(125, 27);
+            tb_Food_Discount.TabIndex = 46;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(266, 19);
+            label17.Name = "label17";
+            label17.Size = new Size(21, 20);
+            label17.TabIndex = 47;
+            label17.Text = "%";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new Point(266, 56);
+            label18.Name = "label18";
+            label18.Size = new Size(21, 20);
+            label18.TabIndex = 48;
+            label18.Text = "%";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(266, 94);
+            label19.Name = "label19";
+            label19.Size = new Size(21, 20);
+            label19.TabIndex = 49;
+            label19.Text = "%";
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(tb_Coffee_Price);
+            groupBox1.Controls.Add(chb_Coffee);
+            groupBox1.Controls.Add(chb_Greentea);
+            groupBox1.Controls.Add(tb_Greentea_Price);
+            groupBox1.Controls.Add(tb_Coffee_Quantity);
+            groupBox1.Controls.Add(tb_Greentea_Quantity);
+            groupBox1.Controls.Add(label12);
+            groupBox1.Controls.Add(label13);
+            groupBox1.Location = new Point(12, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(431, 131);
+            groupBox1.TabIndex = 50;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Beverage";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(chb_noodle);
+            groupBox2.Controls.Add(chb_pizza);
+            groupBox2.Controls.Add(tb_Noodle_Quantity);
+            groupBox2.Controls.Add(tb_Noodle_Price);
+            groupBox2.Controls.Add(tb_Pizza_Quantity);
+            groupBox2.Controls.Add(tb_Pizza_Price);
+            groupBox2.Location = new Point(12, 161);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(431, 125);
+            groupBox2.TabIndex = 34;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Food";
+            // 
+            // chb_noodle
+            // 
+            chb_noodle.AutoSize = true;
+            chb_noodle.Location = new Point(10, 32);
+            chb_noodle.Name = "chb_noodle";
+            chb_noodle.Size = new Size(81, 24);
+            chb_noodle.TabIndex = 51;
+            chb_noodle.Text = "Noodle";
+            chb_noodle.UseVisualStyleBackColor = true;
+            // 
+            // chb_pizza
+            // 
+            chb_pizza.AutoSize = true;
+            chb_pizza.Location = new Point(10, 75);
+            chb_pizza.Name = "chb_pizza";
+            chb_pizza.Size = new Size(66, 24);
+            chb_pizza.TabIndex = 52;
+            chb_pizza.Text = "pizza";
+            chb_pizza.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(tb_Beverage_Discount);
+            groupBox3.Controls.Add(ch_all);
+            groupBox3.Controls.Add(chb_beverage);
+            groupBox3.Controls.Add(label19);
+            groupBox3.Controls.Add(chb_food);
+            groupBox3.Controls.Add(label18);
+            groupBox3.Controls.Add(tb_All_Discount);
+            groupBox3.Controls.Add(label17);
+            groupBox3.Controls.Add(tb_Food_Discount);
+            groupBox3.Location = new Point(12, 303);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(431, 125);
+            groupBox3.TabIndex = 53;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Discount";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(678, 362);
+            label14.Name = "label14";
+            label14.Size = new Size(36, 20);
+            label14.TabIndex = 50;
+            label14.Text = "0.50";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(678, 391);
+            label15.Name = "label15";
+            label15.Size = new Size(36, 20);
+            label15.TabIndex = 54;
+            label15.Text = "0.25";
+            // 
+            // tb_0_50
+            // 
+            tb_0_50.Location = new Point(720, 359);
+            tb_0_50.Name = "tb_0_50";
+            tb_0_50.Size = new Size(125, 27);
+            tb_0_50.TabIndex = 55;
+            // 
+            // tb_0_25
+            // 
+            tb_0_25.Location = new Point(720, 393);
+            tb_0_25.Name = "tb_0_25";
+            tb_0_25.Size = new Size(125, 27);
+            tb_0_25.TabIndex = 56;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label13);
-            Controls.Add(label12);
+            ClientSize = new Size(912, 464);
+            Controls.Add(tb_0_25);
+            Controls.Add(tb_0_50);
+            Controls.Add(label15);
+            Controls.Add(label14);
+            Controls.Add(groupBox3);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(tb_100);
             Controls.Add(label1);
             Controls.Add(tb_cash);
@@ -344,16 +582,16 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(tb_total);
-            Controls.Add(tb_Greentea_Quantity);
-            Controls.Add(tb_Coffee_Quantity);
-            Controls.Add(tb_Greentea_Price);
-            Controls.Add(chb_Greentea);
-            Controls.Add(chb_Coffee);
             Controls.Add(button1);
-            Controls.Add(tb_Coffee_Price);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -391,5 +629,27 @@
         private TextBox tb_100;
         private Label label12;
         private Label label13;
+        private TextBox tb_Noodle_Quantity;
+        private TextBox tb_Noodle_Price;
+        private TextBox tb_Pizza_Quantity;
+        private TextBox tb_Pizza_Price;
+        private CheckBox ch_all;
+        private CheckBox chb_beverage;
+        private CheckBox chb_food;
+        private TextBox tb_All_Discount;
+        private TextBox tb_Beverage_Discount;
+        private TextBox tb_Food_Discount;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private CheckBox chb_noodle;
+        private CheckBox chb_pizza;
+        private GroupBox groupBox3;
+        private Label label14;
+        private Label label15;
+        private TextBox tb_0_50;
+        private TextBox tb_0_25;
     }
 }

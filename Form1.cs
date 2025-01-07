@@ -25,52 +25,69 @@ namespace ShopingCart
             string strGreenteaPrice = tb_Greentea_Price.Text;
             string strGreenteaQuantity = tb_Greentea_Quantity.Text;
 
-            int iCoffeePrice = 0, iCoffeeQuantity = 0, iGreenteaPrice = 0, iGreenteaQuantity = 0, iCash = 0;
+            double dCoffeePrice = 0, dCoffeeQuantity = 0, dGreenteaPrice = 0, dGreenteaQuantity = 0, dCash = 0;
 
             try
             {
-                iCash = int.Parse(strCash);
+                dCash = double.Parse(strCash);
                 if (chb_Coffee.Checked)
                 {
-                    iCoffeePrice = int.Parse(strCoffeePrice);
-                    iCoffeeQuantity = int.Parse(strCoffeeQuantity);
+                    dCoffeePrice = double.Parse(strCoffeePrice);
+                    dCoffeeQuantity = double.Parse(strCoffeeQuantity);
                 }
                 if (chb_Greentea.Checked)
                 {
-                    iGreenteaPrice = int.Parse(strGreenteaPrice);
-                    iGreenteaQuantity = int.Parse(strGreenteaQuantity);
+                    dGreenteaPrice = double.Parse(strGreenteaPrice);
+                    dGreenteaQuantity = double.Parse(strGreenteaQuantity);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("?????????????????????????????: " + ex.Message);
+                return;
+            }
+
+            double dDiscountBev = 0;
+            if (chb_beverage.Checked)
+            {
+                try
+                {
+                    dDiscountBev = double.Parse(tb_Beverage_Discount.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("???????????????????????????");
+                    return;
                 }
             }
 
-            catch (Exception ex)
+            double dCoffeeTotal = dCoffeePrice * dCoffeeQuantity;
+            double dGreenteaTotal = dGreenteaPrice * dGreenteaQuantity;
+            double dTotal = dCoffeeTotal + dGreenteaTotal;
+
+            dTotal -= (dTotal * dDiscountBev / 100);
+
+            if (dCash < dTotal)
             {
-                iCoffeePrice = 0;
-                iCoffeeQuantity = 0;
-                iGreenteaPrice = 0;
-                iGreenteaQuantity = 0;
-                iCash = 0;
+                MessageBox.Show("????????? ??????????????");
+                return;
             }
 
-            int iCoffeeTotal = iCoffeePrice * iCoffeeQuantity;
-            int iGreenteaTotal = iGreenteaPrice * iGreenteaQuantity;
-            int iTotal = iCoffeeTotal + iGreenteaTotal;
-            int iChange = iCash - iTotal;
+            double dChange = dCash - dTotal;
 
-            tb_total.Text = iTotal.ToString();
-            tb_change.Text = iChange.ToString();
+            tb_total.Text = dTotal.ToString("F2"); 
+            tb_change.Text = dChange.ToString("F2");
 
-            
-            int[] denominations = { 1000, 500, 100, 50, 20, 10, 5, 1 }; 
+            int[] denominations = { 1000, 500, 100, 50, 20, 10, 5, 1 };
             int[] changeCount = new int[denominations.Length];
-            int remainChange = iChange;
+            int remainChange = (int)dChange;
 
             for (int i = 0; i < denominations.Length; i++)
             {
                 changeCount[i] = remainChange / denominations[i];
-                remainChange %= denominations[i]; 
+                remainChange %= denominations[i];
             }
 
-            
             tb_1000.Text = changeCount[0].ToString();
             tb_500.Text = changeCount[1].ToString();
             tb_100.Text = changeCount[2].ToString();
@@ -82,6 +99,14 @@ namespace ShopingCart
         }
 
         private void chb_Coffee_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label15_Click(object sender, EventArgs e)
         {
         }
     }
