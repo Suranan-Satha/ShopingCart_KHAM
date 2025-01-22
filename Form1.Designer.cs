@@ -92,7 +92,6 @@
             tb_Coffee_Price.Name = "tb_Coffee_Price";
             tb_Coffee_Price.Size = new Size(125, 27);
             tb_Coffee_Price.TabIndex = 0;
-            tb_Coffee_Price.TextChanged += tb_Coffee_Price_TextChanged;
             // 
             // button1
             // 
@@ -113,7 +112,7 @@
             chb_Coffee.TabIndex = 2;
             chb_Coffee.Text = "Coffee";
             chb_Coffee.UseVisualStyleBackColor = true;
-            chb_Coffee.CheckedChanged += chb_Coffee_CheckedChanged;
+         
             // 
             // chb_Greentea
             // 
@@ -124,6 +123,7 @@
             chb_Greentea.TabIndex = 3;
             chb_Greentea.Text = "Greentea";
             chb_Greentea.UseVisualStyleBackColor = true;
+            
             // 
             // tb_Greentea_Price
             // 
@@ -585,7 +585,6 @@
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);

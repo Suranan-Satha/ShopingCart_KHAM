@@ -2,17 +2,45 @@
 {
     public partial class Form1 : Form
     {
+        
+        MenuItem itemCoffee = new MenuItem();
+        MenuItem itemGreentea = new MenuItem();
+        MenuItem itemNoodle = new MenuItem();
+        MenuItem itemPizza = new MenuItem();
+
         public Form1()
         {
             InitializeComponent();
-        }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-        }
+            
+            itemCoffee.Name = "Coffee";
+            itemCoffee.Price = 75;
+            itemCoffee.Quantity = 0;
 
-        private void tb_Coffee_Price_TextChanged(object sender, EventArgs e)
-        {
+            itemGreentea.Name = "Greentea";
+            itemGreentea.Price = 60;
+            itemGreentea.Quantity = 0;
+
+            itemNoodle.Name = "Noodle";
+            itemNoodle.Price = 50;
+            itemNoodle.Quantity = 0;
+
+            itemPizza.Name = "Pizza";
+            itemPizza.Price = 120;
+            itemPizza.Quantity = 0;
+
+            
+            tb_Coffee_Price.Text = itemCoffee.Price.ToString();
+            tb_Coffee_Quantity.Text = itemCoffee.Quantity.ToString();
+
+            tb_Greentea_Price.Text = itemGreentea.Price.ToString();
+            tb_Greentea_Quantity.Text = itemGreentea.Quantity.ToString();
+
+            tb_Noodle_Price.Text = itemNoodle.Price.ToString();
+            tb_Noodle_Quantity.Text = itemNoodle.Quantity.ToString();
+
+            tb_Pizza_Price.Text = itemPizza.Price.ToString();
+            tb_Pizza_Quantity.Text = itemPizza.Quantity.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,33 +52,40 @@
                 double dBeverageTotal = 0;
                 double dFoodTotal = 0;
 
+                
                 if (chb_Coffee.Checked)
                 {
-                    dBeverageTotal += GetItemTotal(tb_Coffee_Price.Text, tb_Coffee_Quantity.Text);
+                    itemCoffee.Quantity = int.Parse(tb_Coffee_Quantity.Text);
+                    dBeverageTotal += itemCoffee.GetTotalPrice();
                 }
                 if (chb_Greentea.Checked)
                 {
-                    dBeverageTotal += GetItemTotal(tb_Greentea_Price.Text, tb_Greentea_Quantity.Text);
+                    itemGreentea.Quantity = int.Parse(tb_Greentea_Quantity.Text);
+                    dBeverageTotal += itemGreentea.GetTotalPrice();
                 }
 
+                
                 if (chb_noodle.Checked)
                 {
-                    dFoodTotal += GetItemTotal(tb_Noodle_Price.Text, tb_Noodle_Quantity.Text);
+                    itemNoodle.Quantity = int.Parse(tb_Noodle_Quantity.Text);
+                    dFoodTotal += itemNoodle.GetTotalPrice();
                 }
                 if (chb_pizza.Checked)
                 {
-                    dFoodTotal += GetItemTotal(tb_Pizza_Price.Text, tb_Pizza_Quantity.Text);
+                    itemPizza.Quantity = int.Parse(tb_Pizza_Quantity.Text);
+                    dFoodTotal += itemPizza.GetTotalPrice();
                 }
 
                 double dGrandTotal = dBeverageTotal + dFoodTotal;
 
+                
                 double dTotalDiscount = CalculateTotalDiscount(dBeverageTotal, dFoodTotal, dGrandTotal);
 
                 dGrandTotal -= dTotalDiscount;
 
                 if (dCash < dGrandTotal)
                 {
-                    MessageBox.Show("เงินสดไม่เพียงพอ", "ข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Insufficient cash", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -63,31 +98,17 @@
             }
             catch (FormatException)
             {
-                MessageBox.Show("กรุณากรอกข้อมูลตัวเลขให้ถูกต้อง", "ข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please fill in the numbers correctly", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private double GetItemTotal(string priceText, string quantityText)
-        {
-            double price = 0, quantity = 0;
-            try
-            {
-                price = double.Parse(priceText);
-                quantity = double.Parse(quantityText);
-            }
-            catch (Exception)
-            {
-                price = 0;
-                quantity = 0;
-            }
-            return price * quantity;
-        }
         private double CalculateTotalDiscount(double dBeverageTotal, double dFoodTotal, double dGrandTotal)
         {
             double dDiscountBev = chb_beverage.Checked ? double.Parse(tb_Beverage_Discount.Text) : 0;
             double dDiscountFood = chb_food.Checked ? double.Parse(tb_Food_Discount.Text) : 0;
             double dDiscountAll = chb_all.Checked ? double.Parse(tb_total_Discount.Text) : 0;
 
+            
             double dTotalDiscount = (dBeverageTotal * dDiscountBev / 100) + (dFoodTotal * dDiscountFood / 100) + (dGrandTotal * dDiscountAll / 100);
 
             return dTotalDiscount;
@@ -115,22 +136,6 @@
             tb_1.Text = changeCount[7].ToString();
             tb_050.Text = changeCount[8].ToString();
             tb_025.Text = changeCount[9].ToString();
-        }
-
-
-
-
-
-        private void chb_Coffee_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
         }
     }
 }
